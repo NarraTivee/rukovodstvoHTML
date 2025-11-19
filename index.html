@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Понятное руководство по HTML: план обучения, основы и практики</title>
+    <meta name="description"
+        content="Современное и понятное руководство по HTML: план обучения, объяснение принципов, основы, примеры кода, лучшие практики и чек-листы." />
+    <meta name="theme-color" content="#111827" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Руководство по HTML</h1>
+            <p class="subtitle">Современное и понятное объяснение: от нуля до уверенной вёрстки</p>
+            <nav class="quick-nav" aria-label="Быстрая навигация">
+                <a href="#plan">План обучения</a>
+                <a href="#basics">Основы</a>
+                <a href="#forms">Формы</a>
+                <a href="#accessibility">Доступность</a>
+                <a href="#conclusion">Вывод</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="layout container">
+        <aside class="toc" aria-label="Содержание">
+            <h2>Содержание</h2>
+            <ol>
+                <li><a href="#intro">Что такое HTML и как он работает</a></li>
+                <li><a href="#plan">План обучения</a></li>
+                <li><a href="#structure">Структура HTML-документа</a></li>
+                <li><a href="#text">Текст и заголовки</a></li>
+                <li><a href="#links">Ссылки и навигация</a></li>
+                <li><a href="#media">Изображения и медиа</a></li>
+                <li><a href="#semantics">Семантические теги</a></li>
+                <li><a href="#tables">Таблицы</a></li>
+                <li><a href="#forms">Формы</a></li>
+                <li><a href="#attributes">Атрибуты и глобальные атрибуты</a></li>
+                <li><a href="#meta">Метаданные, SEO и превью</a></li>
+                <li><a href="#accessibility">Доступность (A11y)</a></li>
+                <li><a href="#project-structure">Структура проекта и файлы</a></li>
+                <li><a href="#workflow">Как работать с HTML локально</a></li>
+                <li><a href="#practice">Практика и упражнения</a></li>
+                <li><a href="#mistakes">Частые ошибки</a></li>
+                <li><a href="#conclusion">Вывод</a></li>
+            </ol>
+        </aside>
+
+        <section class="content">
+            <section id="intro" class="card">
+                <h2>Что такое HTML и как он работает</h2>
+                <p>HTML (HyperText Markup Language) — это язык разметки для создания структуры веб-страниц. Он описывает
+                    <em>что</em> находится на странице: заголовки, абзацы, изображения, ссылки, формы. За внешний вид
+                    отвечает CSS, за интерактивность — JavaScript.
+                </p>
+                <p>Браузер читает HTML и строит <strong>DOM-дерево</strong> (Document Object Model) — иерархическое
+                    представление элементов. CSS «подкрашивает» эти элементы, а JS позволяет изменять DOM и реагировать
+                    на действия пользователя.</p>
+                <div class="tip">
+                    <strong>Важно:</strong> Старайтесь писать семантический HTML — использовать элементы по назначению.
+                    Это улучшает доступность, SEO и поддержку кода.
+                </div>
+            </section>
+
+            <section id="plan" class="card">
+                <h2>План обучения</h2>
+                <ol>
+                    <li>Установка редактора кода и базовая настройка проекта.</li>
+                    <li>Понимание структуры HTML-документа: doctype, html, head, body.</li>
+                    <li>Текстовые элементы: заголовки, параграфы, выделения, списки.</li>
+                    <li>Ссылки, якоря и навигация.</li>
+                    <li>Изображения, видео, аудио, атрибуты alt и доступность медиа.</li>
+                    <li>Семантическая разметка: section, article, nav, header, footer, main, aside.</li>
+                    <li>Таблицы: базовая разметка и доступность.</li>
+                    <li>Формы: поля ввода, элементы управления, валидация.</li>
+                    <li>Атрибуты: глобаль��ые и специфичные; data-*; ARIA-атрибуты.</li>
+                    <li>Метаданные, SEO-минимум и социальные превью.</li>
+                    <li>Структура проекта: организация файлов и путей.</li>
+                    <li>Практика: собираем мини-страницу, проверяем валидатором.</li>
+                </ol>
+            </section>
+
+            <section id="structure" class="card">
+                <h2>Структура HTML-документа</h2>
+                <pre><code>&lt;!doctype html&gt;
+&lt;html lang="ru"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;title&gt;Заголовок страницы&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Привет, HTML!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                <ul>
+                    <li><code>&lt;!doctype html&gt;</code> сообщает браузеру современный стандарт.</li>
+                    <li><code>lang</code> помогает поиску и доступности (выбор языка).</li>
+                    <li><code>meta viewport</code> делает страницу адаптивной на мобильных.</li>
+                </ul>
+            </section>
+
+            <section id="text" class="card">
+                <h2>Текст и заголовки</h2>
+                <p>Заголовки: <code>h1</code>–<code>h6</code>. Основной заголовок на странице — обычно <code>h1</code>.
+                    Абзацы — <code>p</code>. Выделения — <code>strong</code>, <code>em</code>. Горизонтальная линия —
+                    <code>hr</code>. Перенос строки — <code>br</code> (используйте умеренно).
+                </p>
+                <pre><code>&lt;h1&gt;Заголовок страницы&lt;/h1&gt;
+&lt;p&gt;Обычный абзац текста с &lt;strong&gt;важным&lt;/strong&gt; словом и &lt;em&gt;акцентом&lt;/em&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Пункт списка&lt;/li&gt;
+  &lt;li&gt;Ещё пункт&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+            </section>
+
+            <section id="links" class="card">
+                <h2>Ссылки и навигация</h2>
+                <p>Ссылка — элемент <code>a</code> с атрибутом <code>href</code>. Для открытия в новой вкладке добавьте
+                    <code>target="_blank"</code> и ради безопасности <code>rel="noopener noreferrer"</code>.
+                </p>
+                <pre><code>&lt;nav&gt;
+  &lt;a href="#top"&gt;К началу&lt;/a&gt;
+  &lt;a href="https://developer.mozilla.org/ru/" target="_blank" rel="noopener noreferrer"&gt;MDN&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+            </section>
+
+            <section id="media" class="card">
+                <h2>Изображения и медиа</h2>
+                <p>Используйте осмысленный <code>alt</code> для изображений. Для адаптивной графики применяйте
+                    <code>&lt;picture&gt;</code>, <code>srcset</code> и <code>sizes</code>.
+                </p>
+                <pre><code>&lt;img src="image.jpg" alt="Описание изображения" width="600" height="400" /&gt;
+
+&lt;picture&gt;
+  &lt;source srcset="image@2x.webp 2x, image.webp 1x" type="image/webp" /&gt;
+  &lt;img src="image.jpg" alt="Описание" /&gt;
+&lt;/picture&gt;
+
+&lt;video controls width="480"&gt;
+  &lt;source src="video.mp4" type="video/mp4" /&gt;
+  Ваш браузер не поддерживает видео.
+&lt;/video&gt;
+</code></pre>
+            </section>
+
+            <section id="semantics" class="card">
+                <h2>Семантические теги</h2>
+                <p>Семантика делает документ понятнее для людей, машин и вспомогательных технологий.</p>
+                <pre><code>&lt;header&gt;Шапка&lt;/header&gt;
+&lt;nav&gt;Навигация&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;article&gt;Статья&lt;/article&gt;
+  &lt;/section&gt;
+  &lt;aside&gt;Боковая панель&lt;/aside&gt;
+&lt;/main&gt;
+&lt;footer&gt;Подвал&lt;/footer&gt;
+</code></pre>
+            </section>
+
+            <section id="tables" class="card">
+                <h2>Таблицы</h2>
+                <pre><code>&lt;table&gt;
+  &lt;caption&gt;Продажи за месяц&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th scope="col"&gt;Товар&lt;/th&gt;&lt;th scope="col"&gt;Кол-во&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;th scope="row"&gt;Яблоки&lt;/th&gt;&lt;td&gt;15&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;th scope="row"&gt;Груши&lt;/th&gt;&lt;td&gt;10&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+                <p>Добавляйте <code>caption</code> и <code>scope</code> для лучшей доступности.</p>
+            </section>
+
+            <section id="forms" class="card">
+                <h2>Формы</h2>
+                <pre><code>&lt;form action="/search" method="get"&gt;
+  &lt;label for="q"&gt;Поиск&lt;/label&gt;
+  &lt;input id="q" name="q" type="search" placeholder="Введите запрос" required /&gt;
+  &lt;button type="submit"&gt;Искать&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;form action="/register" method="post"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Регистрация&lt;/legend&gt;
+    &lt;label&gt;Email
+      &lt;input type="email" name="email" required /&gt;
+    &lt;/label&gt;
+    &lt;label&gt;Пароль
+      &lt;input type="password" name="password" minlength="8" required /&gt;
+    &lt;/label&gt;
+    &lt;label&gt;Возраст
+      &lt;input type="number" name="age" min="1" max="120" /&gt;
+    &lt;/label&gt;
+    &lt;label&gt;Страна
+      &lt;select name="country" required&gt;
+        &lt;option value="" disabled selected&gt;Выберите&lt;/option&gt;
+        &lt;option&gt;Россия&lt;/option&gt;
+        &lt;option&gt;Казахстан&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+  &lt;button type="submit"&gt;Создать аккаунт&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+                <p>Соотносите <code>label</code> и поле через <code>for/id</code> (или вкладывайте поле внутрь label) —
+                    это улучшает доступность и UX.</p>
+            </section>
+
+            <section id="attributes" class="card">
+                <h2>Атрибуты и глобальные атрибуты</h2>
+                <ul>
+                    <li><strong>Глобальные:</strong> <code>id</code>, <code>class</code>, <code>style</code>,
+                        <code>title</code>, <code>hidden</code>, <code>tabindex</code>, <code>data-*</code>,
+                        <code>aria-*</code>.
+                    </li>
+                    <li><strong>Спе��ифичные:</strong> например, <code>href</code> у <code>a</code>, <code>src</code> у
+                        <code>img</code>, <code>type</code> у <code>input</code>.
+                    </li>
+                </ul>
+                <pre><code>&lt;button class="btn" data-track="cta" aria-label="Открыть форму"&gt;Открыть&lt;/button&gt;
+</code></pre>
+            </section>
+
+            <section id="meta" class="card">
+                <h2>Метаданные, SEO и соц-превью</h2>
+                <pre><code>&lt;meta name="description" content="Краткое описание страницы" /&gt;
+&lt;meta property="og:title" content="Заголовок для соцсетей" /&gt;
+&lt;meta property="og:description" content="Описание для соцсетей" /&gt;
+&lt;meta property="og:image" content="https://example.com/preview.jpg" /&gt;
+&lt;link rel="icon" href="/favicon.ico" /&gt;
+</code></pre>
+            </section>
+
+            <section id="accessibility" class="card">
+                <h2>Доступность (A11y)</h2>
+                <ul class="checklist">
+                    <li>У изображений есть осмысленные <code>alt</code>.</li>
+                    <li>Ссылки содер��ат понятный текст (не «кликни сюда»).</li>
+                    <li>Формы связаны с <code>label</code>, есть подсказки об ошибках.</li>
+                    <li>Контент доступен с клавиатуры, есть видимый фокус.</li>
+                    <li>Семантическая разметка вместо сплошных <code>div</code>.</li>
+                </ul>
+            </section>
+
+            <section id="project-structure" class="card">
+                <h2>Структура проекта и файлы</h2>
+                <pre><code>project/
+├─ index.html
+├─ index.css
+├─ images/
+└─ scripts/
+</code></pre>
+                <p>Используйте относительные пути: <code>images/logo.png</code>. Не кладите тяжёлые медиа в корень.</p>
+            </section>
+
+            <section id="workflow" class="card">
+                <h2>Как работать с HTML локально</h2>
+                <ol>
+                    <li>Откройте файл <code>index.html</code> двойным кликом или через браузер (Файл → Открыть).</li>
+                    <li>В редакторе (VS Code) установите расширение «Live Server» для автоматического обновления при
+                        сохранении.</li>
+                    <li>Проверяйте валидность на validator.w3.org — вставьте HTML-код или укажите URL.</li>
+                </ol>
+            </section>
+
+            <section id="practice" class="card">
+                <h2>Практика и упражнения</h2>
+                <ol>
+                    <li>Сверстайте визитку: заголовок, абзац, список ссылок, картинка.</li>
+                    <li>Добавьте форму обратной связи: имя, email, сообщение.</li>
+                    <li>Сделайте навигацию по секциям внутри страницы через якоря.</li>
+                    <li>Разметьте статью с использованием <code>article</code> и <code>section</code>.</li>
+                </ol>
+            </section>
+
+            <section id="mistakes" class="card">
+                <h2>Частые ошибки</h2>
+                <ul>
+                    <li>Отсутствие <code>&lt;meta name="viewport"&gt;</code> — страница не адаптивна.</li>
+                    <li>Неверные вложенности тегов (например, <code>li</code> вне <code>ul/ol</code>).</li>
+                    <li>Отсутствие <code>alt</code> у изображений.</li>
+                    <li>Использование таблиц для вёрстки вместо CSS.</li>
+                    <li>Длинные «простыни» без заголовков и секций.</li>
+                </ul>
+            </section>
+
+            <section id="conclusion" class="card">
+                <h2>Вывод</h2>
+                <p>HTML — фундамент веба. Освоив структуру документа, семантику и основы доступности, вы сможете
+                    уверенно создавать понятные и устойчивые страницы. Закрепляйте знания практикой: маленькие проекты,
+                    чтение документации и разбор чужого кода дадут быстрый прогресс.</p>
+            </section>
+
+            <p class="signature">Руководство по HTML от Ильи Калабука</p>
+
+            <p class="back-to-top"><a href="#top">К началу</a></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2025 Учебный проект. HTML-руководство.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
